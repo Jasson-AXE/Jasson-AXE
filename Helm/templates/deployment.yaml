@@ -1,9 +1,9 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-deployment
+  name: web-deployment
   labels: 
-    app : {{ .Release.Name }}-deployment
+    app : my-minikube-deployments
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
