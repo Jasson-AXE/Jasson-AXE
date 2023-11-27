@@ -1,10 +1,10 @@
-apiVersion : apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-cv-v1.0.2
+  name: web-cv-autoscaling
   labels:
-    app  : my-cv-app
-    env  : prod
+    app: my-cv-app
+    env: prod
     owner: JohnDoe
 spec:
   replicas: 2
@@ -17,7 +17,7 @@ spec:
         project: cv-project
     spec:
       containers:
-        - name : web-cv-v1.0.2
+        - name: web-cv-v1-0-2
           image: jassonaxe/cv:v1.0.2
           ports:
             - containerPort: 80
@@ -33,19 +33,19 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: cv-project
+    name: web-cv-autoscaling
   minReplicas: 2
   maxReplicas: 3
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 70
-  - type: Resource
-    resource:
-      name: memory
-      target:
-        type: Utilization
-        averageUtilization: 80
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
