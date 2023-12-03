@@ -1,6 +1,0 @@
-#Default values for my Helm Chart
-
-container:
-  image: jassonaxe/cv:v1.0.2
-
-replicaCount: 3
