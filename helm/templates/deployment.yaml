@@ -1,0 +1,21 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  labels: 
+    app : my-minikube-deployments
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      project: web-app
+  template:
+    metadata:
+      labels:
+        project: web-app
+    spec:
+      containers:
+      - name: web-cv
+        image: {{ .Values.container.image }}
+        ports:
+          - containerPort: 80
