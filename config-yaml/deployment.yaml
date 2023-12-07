@@ -18,4 +18,4 @@ spec:
       - name: web-cv-container
         image: jassonaxe/cv:v1.0.2
         ports:
-          - containerPort: 443
+          - containerPort: 80
