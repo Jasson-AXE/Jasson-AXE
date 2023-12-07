@@ -1,9 +1,9 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: web-deployment
+  name: web-cv-deployment
   labels: 
-    app : my-minikube-deployments
+    app : web-cv-minikube
 spec:
   replicas: 3
   selector:
@@ -15,7 +15,7 @@ spec:
         project: web-app
     spec:
       containers:
-      - name: web-cv
+      - name: web-cv-container
         image: jassonaxe/cv:v1.0.2
         ports:
-          - containerPort: 80
+          - containerPort: 443
