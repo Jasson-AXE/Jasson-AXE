@@ -3,4 +3,4 @@
 container:
   image: jassonaxe/cv:v1.0.2
 
-replicaCount: 3
+replicaCount: 2
